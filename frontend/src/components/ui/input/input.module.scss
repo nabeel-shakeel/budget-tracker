@@ -1,0 +1,6 @@
+@use '../../../styles/colors.scss' as c;
+
+.bt-input {
+  border-radius: 4px;
+  background-color: c.$input-container-bg;
+}

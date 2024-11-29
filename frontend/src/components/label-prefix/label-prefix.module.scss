@@ -1,0 +1,15 @@
+.label-prefix {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  gap: 5px;
+  border: 1px solid #dde4f0;
+  background-color: #e1e8f2;
+
+  &-text {
+    font-size: 12px;
+    font-weight: 400;
+    margin-left: 8px;
+    color: #667085;
+  }
+}

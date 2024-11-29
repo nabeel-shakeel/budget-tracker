@@ -1,0 +1,17 @@
+.user-profile-menu {
+  gap: 10px;
+
+  .user-title {
+    margin: 0;
+  }
+
+  .user-divider {
+    margin: 0;
+    border-color: #dde4f0;
+  }
+
+  .ant-btn {
+    justify-content: flex-start;
+    padding: 0;
+  }
+}

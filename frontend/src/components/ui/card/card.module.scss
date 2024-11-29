@@ -1,0 +1,16 @@
+@use '@styles/colors.scss' as c;
+
+.bt-card {
+  border: 1px solid c.$border-color;
+
+  :global {
+    .ant-card-head {
+      padding: 10px 20px;
+      border-bottom: 1px solid c.$border-color;
+    }
+
+    .ant-card-body {
+      padding: 10px 20px;
+    }
+  }
+}
