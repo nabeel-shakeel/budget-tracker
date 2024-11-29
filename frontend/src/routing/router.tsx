@@ -7,6 +7,7 @@ import {
   AnalysisPage,
   ExpensesPage,
   UsersPage,
+  ProfilePage,
 } from '../pages';
 import { PublicRoute } from './public-route';
 import { PrivateRoute } from './private-route';
@@ -25,7 +26,7 @@ export function Router() {
           <Route path={routes.ANALYSIS} element={<AnalysisPage />} />
           <Route path={routes.EXPENSES} element={<ExpensesPage />} />
           <Route path={routes.USERS} element={<UsersPage />} />
-          <Route path={routes.PROFILE} element={<h1>Profile Page</h1>} />
+          <Route path={routes.PROFILE} element={<ProfilePage />} />
         </Route>
       </Route>
     </Routes>

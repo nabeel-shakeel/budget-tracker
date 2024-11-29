@@ -10,6 +10,7 @@ import {
   BellOutlined,
 } from '@ant-design/icons';
 import { Flex, Button, Layout, Menu, Badge, Avatar } from 'antd';
+import { UserProfileMenu } from '../../components';
 import { routes } from '../../routing';
 import { AppLogoIcon, AppLogoNameIcon } from '../../assets/icons';
 
@@ -112,9 +113,9 @@ export function RootLayout() {
               type="text"
               icon={
                 collapsed ? (
-                  <MenuUnfoldOutlined style={{ fontSize: '24px' }} />
+                  <MenuUnfoldOutlined style={{ fontSize: '19px' }} />
                 ) : (
-                  <MenuFoldOutlined style={{ fontSize: '24px' }} />
+                  <MenuFoldOutlined style={{ fontSize: '19px' }} />
                 )
               }
               onClick={() => setCollapsed(!collapsed)}
@@ -122,14 +123,18 @@ export function RootLayout() {
           )}
           <Flex gap="middle" align="center">
             <Badge dot>
-              <BellOutlined style={{ fontSize: '24px' }} />
+              <BellOutlined style={{ fontSize: '19px' }} />
             </Badge>
-            <Avatar size="large" icon={<UserOutlined />} />
+            <UserProfileMenu
+              name="Nabeel Shakeel"
+              email="nabeel.shakeel@emumba.com"
+              avatarUrl="https://avatars.githubusercontent.com/u/8186664?v=4"
+            />
           </Flex>
         </Header>
         <Content
           style={{
-            padding: 24,
+            padding: 20,
           }}
         >
           <Outlet />

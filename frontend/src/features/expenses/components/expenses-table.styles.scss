@@ -1,0 +1,123 @@
+.expenses-table-container {
+  .ant-table {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+    &-title {
+      background-color: #f7f7f7;
+      border-bottom: 1px solid #dde4f0;
+    }
+
+    &-footer {
+      padding: 0;
+      background-color: #f7f7f7;
+    }
+
+    .ant-table-thead > tr > th {
+      background-color: white;
+      color: #2b2b2b;
+      font-weight: 600;
+      border-bottom: 1px solid #dde4f0;
+    }
+
+    .ant-table-tbody > tr > td {
+      color: #2b2b2b;
+      font-weight: 400;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .ant-table-tbody > tr:hover > td {
+      background-color: #f9fafb;
+    }
+  }
+
+  .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+      margin: 0;
+    }
+
+    .filters {
+      display: flex;
+      gap: 10px;
+
+      .search-input {
+        width: 300px;
+      }
+
+      .sort-select,
+      .date-picker {
+        width: 200px;
+      }
+
+      .ant-picker,
+      .ant-input-affix-wrapper {
+        border-radius: 4px;
+        border-color: #dde4f0;
+      }
+
+      .calendar-icon {
+        color: #7c89a5;
+      }
+
+      .search-icon {
+        color: #7c89a5;
+      }
+    }
+  }
+
+  .expenditure-progress {
+    width: 200px;
+
+    .ant-progress-text {
+      color: #1f2937;
+    }
+  }
+
+  .gray-fields {
+    color: #667085;
+  }
+
+  .delete-icon {
+    color: #ff5771;
+  }
+
+  .edit-icon {
+    color: #7539ff;
+  }
+
+  .ant-pagination {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    justify-content: flex-end;
+    background-color: white;
+    padding: 16px;
+    margin-inline-end: 0;
+
+    .ant-pagination-total-text {
+      flex: 1;
+      font-weight: 400;
+      color: #667085;
+      margin-inline-start: 0;
+    }
+
+    .ant-pagination-item {
+      text-align: center;
+      font-weight: 400;
+      margin-inline-end: 0;
+    }
+
+    .ant-pagination-item-active {
+      background-color: #7a53e8;
+      border: '0.8px solid #7A53E8';
+
+      a {
+        color: white;
+      }
+    }
+  }
+}
