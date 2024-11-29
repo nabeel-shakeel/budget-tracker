@@ -3,11 +3,10 @@ import { ThemeConfig } from 'antd';
 export const theme: ThemeConfig = {
   token: {
     colorPrimary: '#7539FF',
+    colorBgBase: '#FFFFFF',
     colorError: '#EF4435',
     colorTextLabel: '#9E9E9E',
     colorTextSecondary: '#667085',
-    colorBgBase: '#2B2B2B',
-    colorBgContainer: '#EFF4FB',
     colorText: '#2B2B2B',
     colorBorder: '#DDE4F0',
 
@@ -37,7 +36,20 @@ export const theme: ThemeConfig = {
       itemActiveBg: '#7539FF',
       itemSelectedBg: '#7539FF',
       itemSelectedColor: '#FFFFFF',
-      iconSize: 24,
+      iconSize: 19,
+    },
+    Table: {
+      headerSplitColor: 'transparent',
+      borderColor: '#F7F7F7',
+    },
+    Select: {
+      activeOutlineColor: 'transparent',
+      activeBorderColor: '#DDE4F0',
+      hoverBorderColor: '#DDE4F0',
+      optionSelectedBg: '#E1E8F2',
+    },
+    Card: {
+      headerBg: '#F7F7F7',
     },
   },
 };
