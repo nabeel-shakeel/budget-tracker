@@ -1,0 +1,13 @@
+.profileTabs {
+  :global {
+    .ant-tabs-nav-wrap {
+      border-bottom: 1px solid #dde4f0;
+      justify-content: flex-end;
+      align-items: flex-end;
+
+      .ant-tabs-nav-list {
+        margin: 0 !important;
+      }
+    }
+  }
+}

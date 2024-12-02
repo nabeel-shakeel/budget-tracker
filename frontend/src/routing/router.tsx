@@ -3,6 +3,7 @@ import { RootLayout } from '../layouts';
 import {
   SigninPage,
   SignupPage,
+  ForgotPasswordPage,
   ResetPasswordPage,
   AnalysisPage,
   ExpensesPage,
@@ -19,6 +20,7 @@ export function Router() {
       <Route element={<PublicRoute />}>
         <Route path={routes.SIGN_IN} element={<SigninPage />} />
         <Route path={routes.SIGN_UP} element={<SignupPage />} />
+        <Route path={routes.FORGOT_PASSWORD} element={<ForgotPasswordPage />} />
         <Route path={routes.RESET_PASSWORD} element={<ResetPasswordPage />} />
       </Route>
       <Route element={<PrivateRoute />}>

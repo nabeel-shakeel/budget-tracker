@@ -1,0 +1,27 @@
+@use '@styles/colors.scss' as c;
+
+.card {
+  min-width: 400px;
+  height: 300px;
+}
+
+.avatarSpace {
+  margin-top: 10px;
+}
+
+.avatarSize {
+  font-size: 40px;
+}
+
+.text {
+  color: c.$text-label-color;
+}
+
+.divider {
+  margin: 0;
+}
+
+.icon {
+  font-size: 18px;
+  color: c.$text-label-color;
+}

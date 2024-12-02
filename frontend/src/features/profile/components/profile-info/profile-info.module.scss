@@ -1,0 +1,14 @@
+@use '@styles/colors.scss' as c;
+
+.text {
+  color: c.$text-label-color;
+}
+
+.flexColumn {
+  flex: 1;
+}
+
+.boldText {
+  margin: 0;
+  font-weight: 500;
+}

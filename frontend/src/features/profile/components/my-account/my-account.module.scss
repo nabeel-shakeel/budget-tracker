@@ -1,0 +1,31 @@
+.fullWidth {
+  width: 100%;
+  margin-bottom: 5px;
+
+  :global {
+    .ant-col {
+      padding: 0px !important;
+    }
+
+    .ant-form-item-explain {
+      color: red;
+    }
+  }
+}
+
+.boldText {
+  font-weight: 600;
+}
+
+.mediumText {
+  font-weight: 500;
+}
+
+.divider {
+  margin: 0;
+  color: #dde4f0;
+}
+
+.buttonStyles {
+  border-radius: 4px;
+}
