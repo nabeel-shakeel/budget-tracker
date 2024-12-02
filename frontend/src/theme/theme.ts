@@ -20,11 +20,14 @@ export const theme: ThemeConfig = {
   },
   components: {
     Typography: {
+      titleMarginTop: 0,
       titleMarginBottom: 0,
     },
     Input: {
       inputFontSize: 14,
       inputFontSizeLG: 14,
+      activeBg: '#EFF4FB',
+      hoverBg: '#EFF4FB',
     },
     Layout: {
       bodyBg: '#ECF1F2',

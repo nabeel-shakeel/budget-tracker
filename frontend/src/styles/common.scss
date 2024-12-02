@@ -1,4 +1,22 @@
-.body-text {
-  font-size: 16px;
-  color: $text-color;
+@use './colors.scss' as c;
+
+h1.ant-typography,
+h2.ant-typography,
+h5.ant-typography {
+  margin: 0;
+}
+
+.ant-input-outlined:hover {
+  border: 1px solid #dde4f0;
+}
+
+.ant-input-lg,
+.ant-input-affix-wrapper {
+  border-radius: 4px;
+  background-color: #eff4fb !important;
+}
+
+.ant-divider {
+  border: 1px solid c.$divider-color;
+  margin: 0;
 }
