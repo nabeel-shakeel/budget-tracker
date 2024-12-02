@@ -1,0 +1,21 @@
+@use '@styles/colors.scss' as c;
+
+.authLayout {
+  height: 100vh;
+  padding: 40px 80px;
+  gap: 80px;
+}
+
+.leftSection {
+  flex: 1 0 0%;
+}
+
+.appLogo {
+  width: 300px;
+  height: 49px;
+}
+
+.divider {
+  height: 100%;
+  color: c.$border-color;
+}

@@ -4,6 +4,9 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { nxCopyAssetsPlugin } from '@nx/vite/plugins/nx-copy-assets.plugin';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export default defineConfig({
   root: __dirname,
@@ -17,6 +20,9 @@ export default defineConfig({
     host: 'localhost',
   },
   plugins: [react(), nxViteTsPaths(), nxCopyAssetsPlugin(['*.md'])],
+  define: {
+    'process.env': process.env,
+  },
   css: {
     modules: {
       scopeBehaviour: 'local',
@@ -26,6 +32,7 @@ export default defineConfig({
     alias: {
       '@assets': path.resolve(__dirname, './src/assets'),
       '@components': path.resolve(__dirname, './src/components'),
+      '@ui': path.resolve(__dirname, './src/components/ui'),
       '@features': path.resolve(__dirname, './src/features'),
       '@layouts': path.resolve(__dirname, './src/layouts'),
       '@pages': path.resolve(__dirname, './src/pages'),
@@ -33,6 +40,9 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
       '@theme': path.resolve(__dirname, './src/theme'),
       '@provider': path.resolve(__dirname, './src/provider'),
+      '@lib': path.resolve(__dirname, './src/lib'),
+      '@store': path.resolve(__dirname, './src/store'),
+      '@utils': path.resolve(__dirname, './src/utils'),
     },
   },
   build: {

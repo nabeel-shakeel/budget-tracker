@@ -1,0 +1,6 @@
+@use '@styles/colors.scss' as c;
+
+.subtitle {
+  font-weight: 400 !important;
+  color: c.$sub-title-color !important;
+}

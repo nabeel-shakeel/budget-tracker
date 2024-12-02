@@ -1,0 +1,23 @@
+@use '@styles/colors.scss' as c;
+
+.container {
+  flex-grow: 1;
+  gap: 20px;
+}
+
+.formItemRow {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.formItem {
+  margin-bottom: 10px;
+}
+
+.formIcon {
+  color: c.$icon-color;
+}
+
+.buttonContainer {
+  margin-top: 20px;
+}

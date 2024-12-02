@@ -1,0 +1,19 @@
+.layout {
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 2px 10px 60px 0px #e2ecf980;
+}
+
+.icon {
+  font-size: 19px;
+}
+
+.content {
+  padding: 20px;
+}
