@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { RootLayout } from '../layouts';
 import {
   SigninPage,
@@ -17,6 +17,7 @@ import { routes } from './routes';
 export function Router() {
   return (
     <Routes>
+      <Route path="/" element={<Navigate to={routes.SIGN_IN} />} />
       <Route element={<PublicRoute />}>
         <Route path={routes.SIGN_IN} element={<SigninPage />} />
         <Route path={routes.SIGN_UP} element={<SignupPage />} />
