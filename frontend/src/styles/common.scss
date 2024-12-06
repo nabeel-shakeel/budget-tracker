@@ -1,9 +1,13 @@
 @use './colors.scss' as c;
 
 h1.ant-typography,
-h2.ant-typography,
+h2.ant-typography {
+  margin: 0;
+}
+
 h5.ant-typography {
   margin: 0;
+  font-weight: 500;
 }
 
 .ant-input-outlined:hover {
@@ -11,6 +15,8 @@ h5.ant-typography {
 }
 
 .ant-input-lg,
+.ant-input,
+.ant-input-number-input-wrap,
 .ant-input-affix-wrapper {
   border-radius: 4px;
   background-color: #eff4fb !important;
@@ -19,4 +25,27 @@ h5.ant-typography {
 .ant-divider {
   border: 1px solid c.$divider-color;
   margin: 0;
+}
+
+.ant-modal {
+  .ant-modal-title {
+    font-size: 20px;
+  }
+
+  .ant-modal-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.ant-select-selector {
+  .ant-select-selection-item {
+    font-size: 12px;
+  }
+}
+
+.ant-notification-notice-message {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 0px !important;
 }

@@ -21,6 +21,7 @@ const NotificationContext = createContext<NotificationContextProps | undefined>(
 const notificationStyles = {
   success: {
     iconColor: '#08B461',
+    color: '#08B461',
     backgroundColor: '#E1F3EC',
     border: '1px solid #3EC484',
   },
@@ -48,9 +49,10 @@ function NotificationProvider({ children }: { children: ReactNode }) {
       message,
       description,
       placement: 'topRight',
+      duration: 100,
       icon,
       style: {
-        width: 450,
+        minWidth: 300,
         padding: '10px',
         borderRadius: '6px',
         ...notificationStyles[type],

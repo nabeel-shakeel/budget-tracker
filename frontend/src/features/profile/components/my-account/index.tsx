@@ -382,6 +382,8 @@ export function MyAccount({ userInfo }: MyAccountProps) {
                 type="default"
                 block
                 size="middle"
+                htmlType="button"
+                onClick={() => navigate(routes.PROFILE)}
               >
                 Cancel
               </Button>

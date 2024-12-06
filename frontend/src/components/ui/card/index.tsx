@@ -8,7 +8,7 @@ interface CustomCardProps extends CardProps {
 export function Card(props: CustomCardProps) {
   const { title, children, ...rest } = props;
   return (
-    <AntCard size="small" title={title} className={styles['bt-card']} {...rest}>
+    <AntCard size="small" title={title} className={styles.btCard} {...rest}>
       {children}
     </AntCard>
   );

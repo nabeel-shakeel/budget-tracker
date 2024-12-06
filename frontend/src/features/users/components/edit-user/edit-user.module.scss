@@ -1,0 +1,33 @@
+@use '@styles/colors.scss' as c;
+
+.editUserForm {
+  :global {
+    .ant-col {
+      padding: 0px !important;
+    }
+
+    .ant-form-item {
+      margin-bottom: 10px;
+    }
+
+    .ant-form-item-required {
+      font-weight: 500;
+    }
+
+    .ant-form-item-explain {
+      color: red;
+    }
+  }
+}
+
+.flexItem {
+  flex: 1;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.editIcon {
+  color: c.$primary-color;
+}

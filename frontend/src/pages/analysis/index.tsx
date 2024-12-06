@@ -4,26 +4,12 @@ const { Title } = Typography;
 
 export function AnalysisPage() {
   return (
-    <Flex gap="large" vertical>
+    <Flex gap="middle" vertical>
       <Flex justify="space-between">
-        <Title
-          level={1}
-          style={{
-            margin: 0,
-          }}
-        >
-          Analysis
-        </Title>
+        <Title level={1}>Analysis</Title>
       </Flex>
-      <Divider style={{ margin: 0, borderColor: '#DDE4F0' }} />
-      <Title
-        level={1}
-        style={{
-          margin: 0,
-        }}
-      >
-        <AnalysisChart />
-      </Title>
+      <Divider />
+      <AnalysisChart />
     </Flex>
   );
 }

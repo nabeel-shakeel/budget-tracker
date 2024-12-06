@@ -1,4 +1,4 @@
-import { IAddress } from '@features/profile/profile.types';
+import { IProfileAddress } from '@features/profile/profile.types';
 
 export function getNameInitials(firstName: string, lastName: string): string {
   const initials = `${firstName[0].toUpperCase()}${lastName[0].toUpperCase()}`;
@@ -21,6 +21,6 @@ export function getFormattedDate(date: Date): string {
   });
 }
 
-export function getFullAddress(address: IAddress): string {
+export function getFullAddress(address: IProfileAddress): string {
   return `${address.streetAddress}, ${address.city}, ${address.state}, ${address.zipCode}`;
 }

@@ -5,18 +5,11 @@ const { Title } = Typography;
 
 export function UsersPage() {
   return (
-    <Flex gap="large" vertical>
+    <Flex gap="middle" vertical>
       <Flex justify="space-between">
-        <Title
-          level={1}
-          style={{
-            margin: 0,
-          }}
-        >
-          Users
-        </Title>
+        <Title level={1}>Users</Title>
       </Flex>
-      <Divider style={{ margin: 0, borderColor: '#DDE4F0' }} />
+      <Divider />
       <UsersTable />
     </Flex>
   );

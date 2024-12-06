@@ -1,0 +1,23 @@
+@use '@styles/colors.scss' as c;
+
+.analysisChart {
+  :global {
+    .ant-card-body {
+      padding: 0;
+    }
+  }
+
+  .analysisHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding: 10px 20px;
+    background-color: c.$header-bg;
+    border-bottom: 1px solid c.$border-color;
+
+    .rangeSelector {
+      width: 200px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@use '@styles/colors.scss' as c;
+
+.deleteIcon {
+  color: c.$red-color;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.title {
+  font-weight: 500;
+}
+
+.value {
+  color: c.$secondary-color;
+}
+
+.deleteBtn {
+  background-color: c.$red-color;
+}

@@ -1,0 +1,38 @@
+@use '@styles/colors.scss' as c;
+
+.addExpenseForm {
+  :global {
+    .ant-col {
+      padding: 0px !important;
+    }
+
+    .ant-form-item {
+      margin-bottom: 10px;
+    }
+
+    .ant-form-item-required {
+      font-weight: 500;
+    }
+
+    .ant-form-item-explain {
+      color: red;
+    }
+
+    .ant-picker {
+      border-radius: 4px;
+      background-color: #eff4fb !important;
+    }
+  }
+}
+
+.flexItem {
+  flex: 1;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.editIcon {
+  color: c.$primary-color;
+}
