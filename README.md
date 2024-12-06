@@ -10,7 +10,7 @@
 <!-- BUILD STATUS -->
 <div align="center">
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/f0115d4a-d284-4a23-b2c0-f3176e5f730e/deploy-status)](https://app.netlify.com/sites/git-notes/deploys)&nbsp;
+[![Netlify Status](https://api.netlify.com/api/v1/badges/062ae670-c253-451b-beba-04663a2e6a51/deploy-status)](https://app.netlify.com/sites/nabeel-budget-tracker/deploys)&nbsp;
 
 </div>
 
