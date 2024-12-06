@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Flex, Avatar, Popover, Typography, Button, Divider } from 'antd';
 import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
 import { routes } from '@routing';
+import { useAuthStore } from '@store/useAuthStore';
 import { getFullName, getNameInitials } from '@utils/helpers';
 import './user-profile-menu.styles.scss';
 
@@ -18,6 +19,7 @@ interface UserProfileMenuProps {
 export function UserProfileMenu(props: UserProfileMenuProps) {
   const { firstName, lastName, email, avatarUrl } = props;
   const navigate = useNavigate();
+  const { clearToken } = useAuthStore();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -31,8 +33,9 @@ export function UserProfileMenu(props: UserProfileMenuProps) {
   };
 
   const handleSignoutClick = () => {
-    navigate(routes.SIGN_IN);
+    clearToken();
     handleClosePopover();
+    navigate(routes.SIGN_IN);
   };
 
   const content = (
