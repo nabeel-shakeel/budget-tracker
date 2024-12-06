@@ -35,7 +35,7 @@ const UserSchema: Schema = new Schema({
   lastName: { type: String, required: true, length: 50 },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true, length: 8 },
-  budgetLimit: { type: Number, required: true, min: 1, max: 9999999 },
+  budgetLimit: { type: Number, required: true, min: 1, max: 99999999 },
   role: { type: String, enum: ['user', 'admin'], default: 'user' },
   resetPasswordToken: { type: String },
   resetPasswordExpires: { type: Date },

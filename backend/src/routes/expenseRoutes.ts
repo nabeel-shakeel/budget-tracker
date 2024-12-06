@@ -14,8 +14,8 @@ expenseRouter.use(authenticate);
 
 expenseRouter.get('/', getExpenses);
 expenseRouter.post('/', addExpense);
-expenseRouter.put('/:id', updateExpense);
+expenseRouter.put('/', updateExpense);
 expenseRouter.delete('/:id', deleteExpense);
-expenseRouter.get('/budget-trend', getBudgetTrend);
+expenseRouter.get('/trend', getBudgetTrend);
 
 export { expenseRouter };

@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
 import { startOfMonth, subMonths, endOfMonth, ISOStringFormat } from 'date-fns';
-import { IUser } from '../models/user';
 import Expense from '../models/expense';
+import { IUser } from '../models/user';
+import { monthNames } from '../utils/constants';
 
 declare global {
   namespace Express {
@@ -11,7 +12,6 @@ declare global {
   }
 }
 
-// Get all expenses with filtering, sorting, and pagination
 export const getExpenses = async (req: Request, res: Response) => {
   const { date, keyword, sort, page = 1, limit = 10 } = req.query;
 
@@ -52,21 +52,49 @@ export const getExpenses = async (req: Request, res: Response) => {
 
     const total = await Expense.countDocuments(filters);
 
-    res.status(200).json({
+    // Calculate total expenditure for the month
+    const startOfMonthDate = startOfMonth(new Date());
+    const endOfMonthDate = endOfMonth(new Date());
+    const monthlyTotal = await Expense.aggregate([
+      {
+        $match: {
+          userId: req.user?._id,
+          date: {
+            $gte: startOfMonthDate,
+            $lte: endOfMonthDate,
+          },
+        },
+      },
+      {
+        $group: {
+          _id: null,
+          total: { $sum: '$price' },
+        },
+      },
+    ]);
+
+    const totalExpenditure = monthlyTotal[0]?.total || 0;
+    const response = {
       data: expenses.map((expense) => ({
-        ...expense.toObject(),
+        id: expense._id,
+        title: expense.title,
+        price: expense.price,
         date: expense.date.toISOString(),
+        expenditure: totalExpenditure
+          ? ((expense.price / totalExpenditure) * 100).toFixed(2)
+          : 0,
       })),
       total,
       currentPage: +page,
       totalPages: Math.ceil(total / +limit),
-    });
+    };
+
+    res.status(200).json(response);
   } catch (error) {
     res.status(500).json({ error: (error as Error).message });
   }
 };
 
-// Add a new expense
 export const addExpense = async (req: Request, res: Response) => {
   const { title, price, date } = req.body;
 
@@ -78,21 +106,25 @@ export const addExpense = async (req: Request, res: Response) => {
       date: new Date(date),
     });
 
-    const savedExpense = await newExpense.save();
-    res.status(201).json(savedExpense);
+    await newExpense.save();
+
+    res.status(201).json({
+      title,
+      price,
+      date,
+    });
   } catch (error) {
     res.status(400).json({ error: (error as Error).message });
   }
 };
 
 export const updateExpense = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const { title, price, date } = req.body;
+  const { id, title, price, date } = req.body;
 
   try {
     const updatedExpense = await Expense.findByIdAndUpdate(
       id,
-      { title, price, date },
+      { title, price, date: new Date(date) },
       { new: true }
     );
 
@@ -101,7 +133,14 @@ export const updateExpense = async (req: Request, res: Response) => {
       return;
     }
 
-    res.status(200).json(updatedExpense);
+    const updatedExpenseObject = updatedExpense.toObject();
+    updatedExpenseObject.id = updatedExpenseObject._id;
+    delete updatedExpenseObject._id;
+
+    res.status(200).json({
+      ...updatedExpenseObject,
+      date: updatedExpenseObject.date.toISOString(),
+    });
   } catch (error) {
     res.status(400).json({ error: (error as Error).message });
   }
@@ -127,13 +166,15 @@ export const deleteExpense = async (req: Request, res: Response) => {
 export const getBudgetTrend = async (req: Request, res: Response) => {
   const { range } = req.query;
 
-  // determine the date range based on the filter
-  let monthsBack = 1; // Default to last month
-  if (range === '6') monthsBack = 6;
-  if (range === '12') monthsBack = 12;
+  let monthsBack = 1;
+  if (range === 'last6') monthsBack = 6;
+  if (range === 'last12') monthsBack = 12;
 
   const startDate = startOfMonth(subMonths(new Date(), monthsBack));
   const endDate = endOfMonth(new Date());
+
+  console.log('Start date: ', startDate);
+  console.log('End date: ', endDate);
 
   try {
     const expenses = await Expense.aggregate([
@@ -160,10 +201,10 @@ export const getBudgetTrend = async (req: Request, res: Response) => {
       },
     ]);
 
-    // Format the response
+    // Format budget trend data
     const trend = expenses.map((expense) => ({
-      month: `${expense._id.month}-${expense._id.year}`,
-      totalExpenses: expense.totalExpenses,
+      month: monthNames[expense._id.month - 1],
+      value: expense.totalExpenses,
     }));
 
     res.status(200).json({ trend });
