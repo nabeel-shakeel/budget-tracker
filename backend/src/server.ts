@@ -27,6 +27,10 @@ app.use('/api/expenses', expenseRouter);
 app.use('/api/admin', adminRouter);
 app.use('/api/profile', profileRouter);
 
+app.get('/health', (_, res) => {
+  res.status(200).send('OK');
+});
+
 // global error handler
 app.use((err: Error, _req: Request, res: Response) => {
   console.error(err.stack);
