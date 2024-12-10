@@ -7,6 +7,11 @@ Backend of budget tracker application
 - Using MongoDB managed service from MongoDB Atlas
 - Mongoose for ORM
 
+## Email Service
+
+- Using nodemailer for sending emails
+- Make sure to add `env` required by [gmail](https://www.nodemailer.com/usage/using-gmail/) to send emails
+
 ## Run Tasks
 
 To run the server
@@ -23,5 +28,5 @@ npm run build
 
 ## Deployment
 
-- Deployed using
+- Deployed using Render
 - See env variables from `.env.sample`
