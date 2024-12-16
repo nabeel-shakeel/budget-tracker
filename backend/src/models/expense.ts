@@ -1,14 +1,15 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import mongoose, { Schema, Document, Types } from 'mongoose';
+import { IUser } from './user';
 
 export interface IExpense extends Document {
-  userId: string;
+  userId: Types.ObjectId | IUser;
   title: string;
   price: number;
   date: Date;
 }
 
 const ExpenseSchema: Schema = new Schema({
-  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  userId: { type: Types.ObjectId, ref: 'User', required: true },
   title: {
     type: String,
     required: true,

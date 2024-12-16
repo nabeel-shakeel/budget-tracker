@@ -1,0 +1,15 @@
+meta {
+  name: Get Users
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:5000/api/admin/users
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3NDlhZDIxM2JiZDJkODgzOTE0NTdlOCIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTczNDM1NDg2MCwiZXhwIjoxNzM0MzU4NDYwfQ.8JwoXGsb9YJkPd9JYkUKydRIdM3PVrbf9Hytp5xvBKs
+}

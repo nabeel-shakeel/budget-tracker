@@ -32,7 +32,7 @@ app.get('/health', (_, res) => {
 });
 
 // global error handler
-app.use((err: Error, _req: Request, res: Response) => {
+app.use((err: Error, _req: Request, res: Response, next: Function) => {
   console.error(err.stack);
   res.status(500).json({
     message: 'Something went wrong',

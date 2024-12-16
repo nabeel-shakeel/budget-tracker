@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  getExpenses,
+  fetchExpenses,
   addExpense,
   updateExpense,
   deleteExpense,
@@ -12,7 +12,7 @@ const expenseRouter = express.Router();
 
 expenseRouter.use(authenticate);
 
-expenseRouter.get('/', getExpenses);
+expenseRouter.get('/', fetchExpenses);
 expenseRouter.post('/', addExpense);
 expenseRouter.put('/', updateExpense);
 expenseRouter.delete('/:id', deleteExpense);
