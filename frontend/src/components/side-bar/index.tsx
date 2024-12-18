@@ -8,32 +8,10 @@ import {
 } from '@ant-design/icons';
 import { AppLogoIcon, AppLogoNameIcon } from '@assets/icons';
 import { routes } from '@routing';
+import { useUserStore } from '@store/useUserStore';
 import styles from './side-bar.module.scss';
 
 const { Sider } = Layout;
-
-const menuItems = [
-  {
-    key: 'analysis',
-    icon: <LineChartOutlined />,
-    label: 'Analysis',
-  },
-  {
-    key: 'expenses',
-    icon: <DollarOutlined />,
-    label: 'Expenses',
-  },
-  {
-    key: 'users',
-    icon: <UserOutlined />,
-    label: 'Users',
-  },
-  {
-    key: 'logout',
-    icon: <LogoutOutlined />,
-    label: 'Logout',
-  },
-];
 
 interface SideBarProps {
   isCollapsed: boolean;
@@ -42,6 +20,33 @@ interface SideBarProps {
 export function SideBar({ isCollapsed }: SideBarProps) {
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const role = useUserStore((state) => state.role);
+
+  const menuItems = [
+    {
+      key: 'analysis',
+      icon: <LineChartOutlined />,
+      label: 'Analysis',
+    },
+    {
+      key: 'expenses',
+      icon: <DollarOutlined />,
+      label: 'Expenses',
+    },
+    {
+      key: 'logout',
+      icon: <LogoutOutlined />,
+      label: 'Logout',
+    },
+  ];
+
+  if (role === 'admin') {
+    menuItems.splice(2, 0, {
+      key: 'users',
+      icon: <UserOutlined />,
+      label: 'Users',
+    });
+  }
 
   const selectedItem = menuItems.find((item) => item.key === pathname.slice(1));
 

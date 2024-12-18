@@ -13,6 +13,7 @@ import {
 } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { SearchOutlined, CalendarOutlined } from '@ant-design/icons';
+import { useUserStore } from '@store/useUserStore';
 import { LabelPrefix } from '@components';
 import { AddEditExpense } from '@features/expenses/components/add-edit-expense';
 import { DeleteExpense } from '@features/expenses/components/delete-expense';
@@ -31,7 +32,8 @@ const sortOptions = [
   { value: 'date_old', label: 'Date: Oldest to newest' },
 ];
 
-const columns: ColumnsType<IExpenseItem> = [
+// eslint-disable-next-line prefer-const
+let columns: ColumnsType<IExpenseItem> = [
   {
     title: 'Expense',
     dataIndex: 'title',
@@ -140,6 +142,23 @@ export function ExpensesTable() {
     keyword: '',
     sort: '',
   });
+
+  const role = useUserStore((state) => state.role);
+
+  if (role === 'admin') {
+    if (!columns.find((column) => column.key === 'user')) {
+      columns.splice(3, 0, {
+        title: 'User',
+        dataIndex: 'user',
+        key: 'user',
+        render: (user) => (
+          <Text className={styles.grayFields}>
+            {user.firstName} {user.lastName}
+          </Text>
+        ),
+      });
+    }
+  }
 
   const handleChangeFilters = (filters: FilterValues) => {
     setFilters(filters);

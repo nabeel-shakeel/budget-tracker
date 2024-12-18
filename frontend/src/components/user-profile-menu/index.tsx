@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Flex, Avatar, Popover, Typography, Button, Divider } from 'antd';
 import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
+import { queryClient } from '@lib/react-query';
 import { routes } from '@routing';
 import { useAuthStore } from '@store/useAuthStore';
 import { getFullName, getNameInitials } from '@utils/helpers';
@@ -34,6 +35,7 @@ export function UserProfileMenu(props: UserProfileMenuProps) {
 
   const handleSignoutClick = () => {
     clearToken();
+    queryClient.clear();
     handleClosePopover();
     navigate(routes.SIGN_IN);
   };
